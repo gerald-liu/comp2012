@@ -44,4 +44,4 @@ pineapple.o: pineapple.cpp pineapple.h
 depend:;	makedepend $(PPAP)
 
 clean:
-	rm -f core *.o
+	rm -f core *.o *.exe

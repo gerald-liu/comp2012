@@ -14,14 +14,8 @@ DBGFLAGS = -g -Wall
 all: $(OBJS)
 	$(CC) $(LDFLAGS) -o lab2 $(OBJS)
 
-main.o: main.cpp folder.h
-	$(CC) $(CPPFLAGS) -c main.cpp
-
-file.o: file.cpp file.h
-	$(CC) $(CPPFLAGS) -c file.cpp
-
-folder.o: folder.cpp folder.h
-	$(CC) $(CPPFLAGS) -c folder.cpp
+.cpp.o:
+	$(CC) $(CPPFLAGS) -c $*.cpp
 
 # makedepend can find the .h dependencies automatically
 depend:;	makedepend $(SRCS)

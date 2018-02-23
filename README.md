@@ -1,6 +1,6 @@
 # comp2012
 
-COMP2012 Object-Oriented Programming and Data Structures  
+COMP2012    Object-Oriented Programming and Data Structures  
 2018 Spring, HKUST
 
 ## Programs by Gerald Liu

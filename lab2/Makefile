@@ -11,7 +11,7 @@ DBGFLAGS = -g -Wall
 # TARGET: DEPENDENCIES
 # [TAB] COMMAND USED TO CREATE THE TARGET
 
-$(PROG): $(OBJS)
+all: $(OBJS)
 	$(CC) $(LDFLAGS) -o lab2 $(OBJS)
 
 main.o: main.cpp folder.h

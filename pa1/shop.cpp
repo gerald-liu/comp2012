@@ -2,17 +2,9 @@
 #include "shop.h"
 //You are NOT allowed to include any additional library
 
-Shop::Shop(string name, int shopNumber) {
-	this->name = name;
-	this->shopNumber = shopNumber;
-	products = nullptr;
-	productCount = 0;
-}
+Shop::Shop(string name, int shopNumber) : name{ name }, shopNumber{ shopNumber }, products{ nullptr }, productCount{ 0 } {}
 
-Shop::Shop(Shop& another) {
-	name = another.name;
-	shopNumber = another.shopNumber;
-	productCount = another.productCount;
+Shop::Shop(Shop& another) : name{ another.name }, shopNumber{ another.shopNumber }, productCount{ another.productCount } {
 	if (productCount == 0) products = nullptr;
 	else {
 		products = new Product* [productCount];

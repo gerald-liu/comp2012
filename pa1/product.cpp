@@ -2,12 +2,7 @@
 #include "product.h"
 //You are NOT allowed to include any additional library
 
-Product::Product(string name, ProductType type, float price) {
-	this->name = name;
-	this->type = type;
-	this->price = price;
-	quantity = 0;
-}
+Product::Product(string name, ProductType type, float price) : name{ name }, type{ type }, price{ price }, quantity{ 0 } {}
 
 string Product::getName() { return name; }
 

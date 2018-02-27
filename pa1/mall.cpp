@@ -3,17 +3,9 @@
 //You are NOT allowed to include any additional library
 //NOTE: Mall::duplicateShopLinkedList must NOT be implemented here
 
-Mall::Mall(string name, string address) {
-	this->name = name;
-	this->address = address;
-	shopHead = nullptr;
-}
+Mall::Mall(string name, string address) : name{ name }, address{ address }, shopHead{ nullptr } {}
 
-Mall::Mall(Mall& another) {
-	name = another.name;
-	address = another.address;
-	shopHead = duplicateShopLinkedList(another.shopHead);
-}
+Mall::Mall(Mall& another) : name{ another.name }, address{ another.address }, shopHead{ duplicateShopLinkedList(another.shopHead) } {}
 
 Mall::~Mall() {
 	Node* curr = shopHead;

@@ -2,10 +2,7 @@
 #include "node.h"
 //You are NOT allowed to include any additional library
 
-Node::Node(Shop* shop, Node* next) {
-	this->shop = shop;
-	this->next = next;
-}
+Node::Node(Shop* shop, Node* next) : shop{ shop }, next{ next } {}
 
 Node::~Node() {
 	delete shop;

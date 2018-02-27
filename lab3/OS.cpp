@@ -13,7 +13,7 @@ void OS::upgrade() {
 }
 
 void OS::print() const {
-    cout << "The current operating sytem is " << name << " with version " << version << "." << endl;
+    cout << "The current operating sytem is " << &name[0] << " with version " << version << "." << endl;
 }
 
 string OS::get_name() const {

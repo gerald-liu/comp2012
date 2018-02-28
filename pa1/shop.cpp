@@ -18,7 +18,6 @@ Shop::Shop(Shop& another) : name{ another.name }, shopNumber{ another.shopNumber
 Shop::~Shop() {
 	for (int i = 0; i < productCount; i++) delete products[i];
 	delete[] products;
-	products = nullptr;
 }
 
 string Shop::getName() { return name; }
@@ -105,8 +104,7 @@ bool Shop::removeProduct(string name, int quantityToRemove) {
 }
 
 Product* Shop::findProduct(string name) {
-	int j = 0;
-	for (; j < productCount; j++) if (products[j]->getName() == name) return products[j];
+	for (int j = 0; j < productCount; j++) if (products[j]->getName() == name) return products[j];
 	return nullptr;
 }
 

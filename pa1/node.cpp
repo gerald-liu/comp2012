@@ -4,11 +4,7 @@
 
 Node::Node(Shop* shop, Node* next) : shop{ shop }, next{ next } {}
 
-Node::~Node() {
-	delete shop;
-	shop = nullptr;
-	next = nullptr;
-}
+Node::~Node() { delete shop; }
 
 Shop* Node::getShop() { return shop; }
 

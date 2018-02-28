@@ -31,9 +31,7 @@ bool Product::setQuantity(int quantity) {
 int Product::compare(Product* other) {
 	if (price - other->getPrice() >= 0.01f) return 1;
 	else if (price - other->getPrice() <= -0.01f) return -1;
-	else {
-		if (name > other->getName()) return 1;
-		else if (name < other->getName()) return -1;
-		else return 0;
-	}
+	else if (name > other->getName()) return 1;
+	else if (name < other->getName()) return -1;
+	else return 0;
 }

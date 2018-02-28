@@ -15,7 +15,6 @@ Mall::~Mall() {
 		delete curr;
 		curr = next;
 	}
-	shopHead = nullptr;
 }
 
 void Mall::setName(string name) { this->name = name; }
@@ -32,8 +31,7 @@ bool Mall::addShop(string name, int shopNumber) {
 		if (n->getShop()->getShopNumber() == shopNumber) return false;
 		if (n->getNext() == nullptr) break;
 	}
-	Shop* newShop = new Shop(name, shopNumber);
-	Node* newNode = new Node(newShop, nullptr);
+	Node* newNode = new Node(new Shop(name, shopNumber), nullptr);
 	if (shopHead == nullptr) shopHead = newNode;
 	else n->setNext(newNode);
 	return true;

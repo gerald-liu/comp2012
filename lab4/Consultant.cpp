@@ -44,7 +44,3 @@ void Consultant::check(Item item) const {
 	default: cout << "Invalid item." << endl;
 	}
 }
-
-
-
-

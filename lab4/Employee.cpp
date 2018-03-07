@@ -28,8 +28,3 @@ void Employee::check(Item item) const {
 	}
 
 }
-
-
-
-
-

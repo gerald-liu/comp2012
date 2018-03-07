@@ -24,5 +24,3 @@ int main()
 	delete econ;
 	return 0;
 }
-
-

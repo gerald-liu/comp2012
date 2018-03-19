@@ -11,7 +11,7 @@ public:
     /* TODO1: Fill in the three missing declaratons here */
 	virtual ~Animal();
     virtual void speak() const;
-    virtual void eat(string food) const;
+    virtual void eat(string food) const = 0;
 private:
     string name;
 };

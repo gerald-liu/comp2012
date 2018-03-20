@@ -1,6 +1,4 @@
-#include <iostream>
 #include <typeinfo>
-#include "Animal.h"
 #include "Dog.h"
 #include "Cat.h"
 

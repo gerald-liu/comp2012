@@ -19,7 +19,7 @@ int main()
         animals[i]->speak();
         animals[i]->eat(foods[i]);
 		
-        if(string(typeid(*animals[i]).name()).find("Dog") != string::npos)
+        if(typeid(*animals[i]).name() == typeid(Dog).name())
         {
             dynamic_cast<Dog*>(animals[i])->swim();
         }

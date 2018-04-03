@@ -30,6 +30,7 @@ void Player::drawCard(CardPile & drawPile, CardPile & discardPile, int numCards)
 		int rest = numCards - drawPile.getSize();
 		for (int i = 0; i < drawPile.getSize(); i++) *this += drawPile.removeTopCard();
 		for (int i = 0; i < discardPile.getSize() - 1; i++) drawPile += discardPile.removeCard(discardPile.getSize() - 2);
+		drawPile.shuffle();
 		if (rest <= drawPile.getSize()) for (int i = 0; i < rest; i++) *this += drawPile.removeTopCard();
 		else for (int i = 0; i < drawPile.getSize(); i++) *this += drawPile.removeTopCard();
 	}

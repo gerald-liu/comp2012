@@ -6,7 +6,6 @@
  *				Weiyang Liu
  */
 
-#include "WildCard.h"
 #include "Player.h"
 
 void WildCard::castEffect(Player*& currentPlayer, CardPile& drawPile, CardPile& discardPile) {

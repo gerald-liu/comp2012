@@ -6,7 +6,6 @@
  *				Weiyang Liu
  */
 
-#include "ReverseCard.h"
 #include "Player.h"
 
 void ReverseCard::castEffect(Player *& currentPlayer, CardPile & drawPile, CardPile & discardPile) {

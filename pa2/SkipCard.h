@@ -11,7 +11,6 @@
 
 #include <typeinfo>
 #include "Card.h"
-#include "Player.h"
 
 class SkipCard : public Card {
 public:
@@ -19,10 +18,7 @@ public:
 
 	virtual ~SkipCard() = default;
 
-	virtual bool operator^(const Card& t) const override {
-		if (Card::operator^(t) || typeid(t).name() == typeid(*this).name()) return true;
-		else return false;
-	}
+	virtual bool operator^(const Card& t) const override { return Card::operator^(t) || typeid(t) == typeid(*this); }
 
 	virtual void castEffect(Player*& currentPlayer, CardPile& drawPile, CardPile& discardPile) override;
 

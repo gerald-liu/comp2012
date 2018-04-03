@@ -27,12 +27,15 @@ Player::Player(string name, Player * previous) : name{ name } {
 void Player::drawCard(CardPile & drawPile, CardPile & discardPile, int numCards) {
 	if (numCards <= drawPile.getSize()) for (int i = 0; i < numCards; i++) *this += drawPile.removeTopCard();
 	else {
-		int rest = numCards - drawPile.getSize();
-		for (int i = 0; i < drawPile.getSize(); i++) *this += drawPile.removeTopCard();
-		for (int i = 0; i < discardPile.getSize() - 1; i++) drawPile += discardPile.removeCard(discardPile.getSize() - 2);
+		int drawPileSize = drawPile.getSize();
+		for (int i = 0; i < drawPileSize; i++) *this += drawPile.removeTopCard();
+		int discardPileSize = discardPile.getSize();
+		for (int i = 0; i < discardPileSize - 1; i++) drawPile += discardPile.removeCard(0);
 		drawPile.shuffle();
-		if (rest <= drawPile.getSize()) for (int i = 0; i < rest; i++) *this += drawPile.removeTopCard();
-		else for (int i = 0; i < drawPile.getSize(); i++) *this += drawPile.removeTopCard();
+		int newDrawPileSize = drawPile.getSize();
+		if (numCards - drawPileSize <= newDrawPileSize)
+			for (int i = 0; i < numCards - drawPileSize; i++) *this += drawPile.removeTopCard();
+		else for (int i = 0; i < newDrawPileSize; i++) *this += drawPile.removeTopCard();
 	}
 }
 

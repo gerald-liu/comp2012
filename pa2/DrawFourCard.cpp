@@ -1,4 +1,11 @@
-#include "DrawFourCard.h"
+/*
+ * DrawFourCard.cpp
+ *
+ *  Created on: Feb 6, 2018
+ *      Author: kevinw
+ *				Weiyang Liu
+ */
+
 #include "Player.h"
 
 void DrawFourCard::castEffect(Player *& currentPlayer, CardPile & drawPile, CardPile & discardPile) {

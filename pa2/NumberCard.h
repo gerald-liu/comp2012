@@ -15,10 +15,7 @@ class NumberCard : public Card {
 public:
 	NumberCard(int mark, Color color) : Card{ color, mark } {}
 
-	virtual bool operator^(const Card& t) const override {
-		if (Card::operator^(t) || t.getPoint() == this->getPoint()) return true;
-		else return false;
-	}
+	virtual bool operator^(const Card& t) const override { return Card::operator^(t) || t.getPoint() == getPoint(); }
 
 	virtual void castEffect(Player*& currentPlayer, CardPile& drawPile, CardPile& discardPile) override {}
 

@@ -16,10 +16,7 @@ class ReverseCard : public Card {
 public:
 	ReverseCard(Color color) : Card{ color, POINT_REVERSECARD } {};
 
-	virtual bool operator^(const Card& t) const override {
-		if (Card::operator^(t) || typeid(t).name() == typeid(*this).name()) return true;
-		else return false;
-	}
+	virtual bool operator^(const Card& t) const override { return Card::operator^(t) || typeid(t) == typeid(*this);	}
 
 	virtual void castEffect(Player*& currentPlayer, CardPile& drawPile, CardPile& discardPile) override;
 

@@ -1,7 +1,7 @@
 PROG = lab6
 SRCS = *.cpp
 CC = g++
-CPPFLAGS = -std=c++11
+CPPFLAGS = -std=c++11 -Wall
 
 all: $(PROG)
 

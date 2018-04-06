@@ -13,19 +13,20 @@ bool isNumeric(const string& token) {
 
 double evaluatePostfixExpression(const string& expression, char delim=' ') {
 	/****** START YOUR IMPLEMENTATION FOR PART 2 HERE ******/
-
+    
+    Stack<double> s;
 	stringstream ss(expression);
 	string token;
-	while (getline(ss, token, delim)) {
-		// HINT: The variable "token" here is storing either
-		//       an operand or an operator scanning from left to right.
-
-
-
-	}
-	return 0.0;
-
-	/******* END YOUR IMPLEMENTATION FOR PART 2 HERE *******/
+	while (getline(ss, token, delim)) { // HINT: token = operand/operator
+        if (isNumeric(token)) s += stod(token);
+        else if (token == "+") s += ((s--) + (s--));
+        else if (token == "-") s += -((s--) - (s--));
+        else if (token == "*") s += ((s--) * (s--));
+        else if (token == "/") s += (1 / (s--) * (s--));
+    }
+	return ~s;
+	
+    /******* END YOUR IMPLEMENTATION FOR PART 2 HERE *******/
 }
 
 int main() {

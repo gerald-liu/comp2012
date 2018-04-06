@@ -20,11 +20,11 @@ public:
 	T operator~() const;
 
 	// TODO: Overload operator "==" to check the equality of stack objects
-	bool operator==(Stack<T>&) const;
+	bool operator==(const Stack<T>&) const;
 
 	// TODO: Overload operator "<<" to show the items stored in the stack object
 	template<class U>
-	friend ostream& operator<<(ostream&, Stack<T>&);
+	friend ostream& operator<<(ostream&, const Stack<U>&);
 
 	// MUTATOR member functions:
 	// TODO: Overload operator "+=" to add a new item to the top
@@ -58,54 +58,55 @@ inline int Stack<T>::size() const { return top_index + 1; }
 
 template<typename T>
 inline T Stack<T>::operator~() const {
-	if (!empty()) return data[top_index];	else {
+	if (!empty()) return data[top_index];
+	else {
 		cerr << "[ERROR] Stack is empty, returning a garbage value\n";
 		return T();
 	}
 }
 
 template<typename T>
-inline bool Stack<T>::operator==(Stack<T>& s) const {
+inline bool Stack<T>::operator==(const Stack<T>& s) const {
 	if (top_index != s.top_index) return false;
-	Stack<T> temp1, temp2;
-	while (!empty()) {
-		if (~this* != ~s) return false;
-		temp1 += (--this*);
-		temp2 += (--s);
-	}
-	while (!temp1.empty()) {
-		this* += (--temp1);
-		s += (--temp2);
-	}
+	for (int i = 0; i <= top_index; i++) if (data[i] != s.data[i]) return false;
 	return true;
 }
 
 template<typename T>
-ostream& operator<<(ostream& os, Stack<T>& s) {
-	Stack<T> temp;
-	while (!empty()) {
-		os << ~s << '\n';
-		temp += (--s);
-	}
-	while (!temp.empty()) s += (--temp);
+ostream& operator<<(ostream& os, const Stack<T>& s) {
+	if (s.empty()) return os;
+	for (int i = s.top_index; i > 0 ; i--) os << s.data[i] << '\n';
+	os << s.data[0];
 	return os;
 }
 
 template<typename T>
 inline const Stack<T>& Stack<T>::operator+=(const T& t) {
-	data[top_index + 1] = t;
-	top_index++;
+	if (full()) cerr << "[ERROR] Stack is full, can't add new value\n";
+	else {
+		data[top_index + 1] = t;
+		top_index++;
+	}
 	return *this;
 }
 
 template<typename T>
 inline T& Stack<T>::operator--() {
+	if (empty()) {
+		cerr << "[ERROR] Stack is empty, returning a garbage value\n";
+		T garbage_t;
+		return garbage_t;
+	}
 	top_index--;
 	return data[top_index];
 }
 
 template<typename T>
 inline T Stack<T>::operator--(int) {
+	if (empty()) {
+		cerr << "[ERROR] Stack is empty, returning a garbage value\n";
+		return T();
+	}
 	int i = top_index;
 	top_index--;
 	return data[i];

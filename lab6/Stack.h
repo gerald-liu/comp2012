@@ -1,5 +1,3 @@
-#include <iostream>
-
 using namespace std;
 const int STACK_CAPACITY = 64;
 

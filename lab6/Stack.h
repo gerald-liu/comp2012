@@ -90,13 +90,13 @@ inline const Stack<T>& Stack<T>::operator+=(const T& t) {
 
 template<typename T>
 inline T& Stack<T>::operator--() {
-	if (empty()) {
+	if (empty() || top_index = 0) {
+		top_index = -1;
 		cerr << "[ERROR] Stack is empty, returning a garbage value\n";
 		T garbage_t;
 		return garbage_t;
 	}
-	top_index--;
-	return data[top_index];
+	return data[--top_index];
 }
 
 template<typename T>
@@ -105,9 +105,7 @@ inline T Stack<T>::operator--(int) {
 		cerr << "[ERROR] Stack is empty, returning a garbage value\n";
 		return T();
 	}
-	int i = top_index;
-	top_index--;
-	return data[i];
+	return data[top_index--];
 }
 
 /******* END YOUR IMPLEMENTATION FOR PART 1 HERE *******/

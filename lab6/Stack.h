@@ -81,10 +81,7 @@ ostream& operator<<(ostream& os, const Stack<T>& s) {
 template<typename T>
 inline const Stack<T>& Stack<T>::operator+=(const T& t) {
 	if (full()) cerr << "[ERROR] Stack is full, can't add new value\n";
-	else {
-		data[top_index + 1] = t;
-		top_index++;
-	}
+	else data[++top_index] = t;
 	return *this;
 }
 

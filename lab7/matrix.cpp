@@ -12,9 +12,9 @@ bool print_step{ false };
  * @param num_cols the number of columns
  */
 Matrix::Matrix(int num_rows, int num_cols) : num_rows{ num_rows }, num_cols{ num_cols } {
-    if (print_step) cout << "constructor" << endl;
-    ptr = new int[num_rows * num_cols];
-    for (int i = 0; i < num_rows * num_cols; i++) ptr[i] = 0;
+	if (print_step) cout << "constructor" << endl;
+	ptr = new int[num_rows * num_cols];
+	for (int i = 0; i < num_rows * num_cols; i++) ptr[i] = 0;
 }
 
 /**
@@ -25,9 +25,9 @@ Matrix::Matrix(int num_rows, int num_cols) : num_rows{ num_rows }, num_cols{ num
  * @param num_cols the number of columns
  */
 Matrix::Matrix(int* data, int num_rows, int num_cols) : num_rows{ num_rows }, num_cols{ num_cols } {
-    if (print_step) cout << "constructor" << endl;
-    ptr = new int[num_rows * num_cols];
-    for (int i = 0; i < num_rows * num_cols; i++) ptr[i] = data[i];
+	if (print_step) cout << "constructor" << endl;
+	ptr = new int[num_rows * num_cols];
+	for (int i = 0; i < num_rows * num_cols; i++) ptr[i] = data[i];
 }
 
 /**
@@ -41,7 +41,7 @@ Matrix::~Matrix() { if (ptr != nullptr) delete[] ptr; }
  * @param mat
  */
 Matrix::Matrix(const Matrix& mat) : num_rows{ mat.num_rows }, num_cols{ mat.num_cols } {
-    if (print_step) cout << "copy constructor" << endl;
+	if (print_step) cout << "copy constructor" << endl;
 	ptr = new int[num_rows * num_cols];
 	for (int i = 0; i < num_rows * num_cols; i++) ptr[i] = mat.ptr[i];
 }
@@ -52,7 +52,7 @@ Matrix::Matrix(const Matrix& mat) : num_rows{ mat.num_rows }, num_cols{ mat.num_
  * @param mat
  */
 Matrix::Matrix(Matrix&& mat) : ptr{ mat.ptr }, num_rows{ mat.num_rows }, num_cols{ mat.num_cols } {
-    if (print_step) cout << "move constructor" << endl;
+	if (print_step) cout << "move constructor" << endl;
 	mat.num_rows = 0;
 	mat.num_cols = 0;
 	mat.ptr = nullptr;
@@ -64,7 +64,7 @@ Matrix::Matrix(Matrix&& mat) : ptr{ mat.ptr }, num_rows{ mat.num_rows }, num_col
  * @param mat
  */
 const Matrix& Matrix::operator=(const Matrix& mat) {
-    if (print_step) cout << "operator =" << endl;
+	if (print_step) cout << "operator =" << endl;
 	if (this == &mat) return *this;
 
 	num_rows = mat.num_rows;
@@ -83,7 +83,7 @@ const Matrix& Matrix::operator=(const Matrix& mat) {
  * @param mat
  */
 const Matrix& Matrix::operator=(Matrix&& mat) {
-    if (print_step) cout << "move operator =" << endl;
+	if (print_step) cout << "move operator =" << endl;
 	if (this == &mat) return *this;
 
 	num_rows = mat.num_rows;
@@ -106,7 +106,7 @@ const Matrix& Matrix::operator=(Matrix&& mat) {
  * @return
  */
 Matrix Matrix::operator+(const Matrix& mat) {
-    if (print_step) cout << "operator +" << endl;
+	if (print_step) cout << "operator +" << endl;
 	Matrix m{ mat.ptr, mat.num_rows, mat.num_cols };
 	for (int i = 0; i < num_rows * num_cols; i++) m.ptr[i] += ptr[i];
 	return move(m);
@@ -119,7 +119,7 @@ Matrix Matrix::operator+(const Matrix& mat) {
  * @return
  */
 Matrix& Matrix::operator+(Matrix&& mat) {
-    if (print_step) cout << "operator + for rvalue" << endl;
+	if (print_step) cout << "operator + for rvalue" << endl;
 	for (int i = 0; i < num_rows * num_cols; i++) mat.ptr[i] += ptr[i];
 	return mat;
 }
@@ -133,15 +133,15 @@ int Matrix::operator()(int x, int y) const { return ptr[x * num_cols + y]; }
 
 /* Print the elements of the matrix */
 void Matrix::print() const {
-    for (int i = 0; i < num_rows; i++) {
-        cout << (i == 0 ? "[" : " ");
-        for (int j = 0; j < num_cols; j++) {
-            cout << ptr[i * num_cols + j];
-            if (j != num_cols - 1) cout << ", ";
-        }
-        cout << (i == num_rows - 1 ? "]" : ";");
-        cout << endl;
-    }
+	for (int i = 0; i < num_rows; i++) {
+		cout << (i == 0 ? "[" : " ");
+		for (int j = 0; j < num_cols; j++) {
+			cout << ptr[i * num_cols + j];
+			if (j != num_cols - 1) cout << ", ";
+		}
+		cout << (i == num_rows - 1 ? "]" : ";");
+		cout << endl;
+	}
 }
 
 /* Switcher for result printing.

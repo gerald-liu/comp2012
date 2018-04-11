@@ -12,5 +12,5 @@ COMP2012	Object-Oriented Programming and Data Structures
 20180305	lab4  
 20180314  lab5  
 20180327  pa2  
-20180409  lab6
+20180409  lab6  
 20180411  lab7

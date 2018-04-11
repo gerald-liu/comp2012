@@ -1,4 +1,4 @@
-/*
+﻿/*
  * DrawFourCard.h
  *
  *  Created on: Feb 6, 2018
@@ -13,7 +13,7 @@
 
 class DrawFourCard : public WildCard {
 public:
-	DrawFourCard() = default;
+	DrawFourCard() : WildCard { POINT_DRAWFOURCARD } {}
 
 	virtual void castEffect(Player*& currentPlayer, CardPile& drawPile, CardPile& discardPile) override;
 

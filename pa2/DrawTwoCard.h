@@ -1,4 +1,4 @@
-/*
+﻿/*
  * DrawTwoCard.h
  *
  *  Created on: Feb 5, 2018
@@ -14,7 +14,7 @@
 
 class DrawTwoCard : public SkipCard {
 public:
-	DrawTwoCard(Color color) : SkipCard{ color } {}
+	DrawTwoCard(Color color) : SkipCard{ color, POINT_DRAWTWOCARD } {}
 
 	virtual void castEffect(Player*& currentPlayer, CardPile& drawPile, CardPile& discardPile) override;
 

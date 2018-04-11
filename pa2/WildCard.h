@@ -1,4 +1,4 @@
-/*
+﻿/*
  * WildCard.h
  *
  *  Created on: Feb 6, 2018
@@ -14,6 +14,7 @@
 class WildCard : public Card {
 public:
 	WildCard() : Card{ static_cast<Color>(4), POINT_WILDCARD } {}
+	WildCard(int point) : Card{ static_cast<Color>(4), point } {}
 
 	virtual ~WildCard() = default;
 

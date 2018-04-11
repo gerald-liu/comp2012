@@ -1,4 +1,4 @@
-/*
+﻿/*
  * SkipCard.h
  *
  *  Created on: Feb 2, 2018
@@ -15,6 +15,7 @@
 class SkipCard : public Card {
 public:
 	SkipCard(Color color) : Card{ color, POINT_SKIPCARD } {}
+	SkipCard(Color color, int point) : Card{ color, point } {}
 
 	virtual ~SkipCard() = default;
 

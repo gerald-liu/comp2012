@@ -4,6 +4,7 @@ COMP2012	Object-Oriented Programming and Data Structures
 2018 Spring, HKUST
 
 ## Programs by Gerald Liu
+[wliuax@connect.ust.hk](mailto:wliuax@connect.ust.hk)
 
 20180208	pa1  
 20180210	lab1  

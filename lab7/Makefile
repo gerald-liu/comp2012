@@ -9,7 +9,8 @@ all: *.o
 	$(CC) $(CPPFLAGS) -c *.cpp
 
 # makedepend can find the .h dependencies automatically
-depend:;	makedepend *.cpp
+depend:
+	makedepend *.cpp
 
 clean:
 	rm -f *.o $(PROG)

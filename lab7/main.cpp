@@ -29,7 +29,13 @@ void task1() {
     cout << "-- print --" << endl;
     // TODO: Please comment the line(s) which may cause runtime error. TA may ask you to explain the reason.
     cout << "mat_a = " << endl; mat_a.print();
-	//cout << "mat_b = " << endl; mat_b.print();
+
+    /* After being move assigned to mat_d, all data members of mat_b has been reset to 0 or nullptr,
+     * so it may cause a read access violation when mat_b.print() trys to access ptr[index].
+     * But in fact, mat_b.print() will just do nothing because the loop in it won't be entered given num_rows = 0.
+     */
+    // cout << "mat_b = " << endl; mat_b.print();
+    
     cout << "mat_c = " << endl; mat_c.print();
     cout << "mat_d = " << endl; mat_d.print();
 
@@ -63,8 +69,8 @@ void task2() {
 
     t0 = current_time_millis();
     Matrix mat_q = mat_b;
-	for (int i = 0; i < EXEC_TIMES; i++)
-		mat_q = mat_b + move(mat_q);
+    for (int i = 0; i < EXEC_TIMES; i++)
+        mat_q = mat_b + move(mat_q);
     cout << "mat_q = " << endl; mat_q.print();
     t1 = current_time_millis();
     cout << "time cost: " << (t1 - t0) << "ms" << endl;

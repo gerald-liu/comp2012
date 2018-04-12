@@ -1,16 +1,30 @@
-PROG = lab7
-CC = g++
-CPPFLAGS = -std=c++11 -Wall
+EXE = a.out
+SRC = *.cpp
+OBJ = *.o
+CXXFLAGS = -std=c++11 -Wall
+DBGFLAGS = -g
 
-all: *.o
-	$(CC) -o $(PROG) *.o
+all: clean build run
 
-*.o:
-	$(CC) $(CPPFLAGS) -c *.cpp
+debug: clean dbg_build run
 
-# makedepend can find the .h dependencies automatically
+build: $(OBJ)
+	$(CXX) -o $(EXE) $(OBJ)
+
+dbg_build: dbg_$(OBJ)
+	$(CXX) -o $(EXE) $(OBJ)
+
+$(OBJ):
+	$(CXX) $(CXXFLAGS) -c $(SRC)
+
+dbg_$(OBJ):
+	$(CXX) $(CXXFLAGS) $(DBGFLAGS) -c $(SRC)
+
 depend:
-	makedepend *.cpp
+	makedepend $(SRC)
+
+run:
+	./$(EXE)
 
 clean:
-	rm -f *.o $(PROG)
+	rm -f $(OBJ) $(EXE)

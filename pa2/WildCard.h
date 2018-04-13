@@ -13,8 +13,8 @@
 
 class WildCard : public Card {
 public:
-	WildCard() : Card{ static_cast<Color>(4), POINT_WILDCARD } {}
-	WildCard(int point) : Card{ static_cast<Color>(4), point } {}
+	WildCard() : Card{ Color::meta, POINT_WILDCARD } {}
+	WildCard(int point) : Card{ Color::meta, point } {}
 
 	virtual ~WildCard() = default;
 

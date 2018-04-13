@@ -41,7 +41,7 @@ void Player::drawCard(CardPile & drawPile, CardPile & discardPile, int numCards)
 
 Card * Player::playCardAfter(const Card * topCard, int index) {
 	if (!(*topCard ^ *getCard(index))) return nullptr;
-	else if (getSize() == 1 && getCard(index)->getPoint() > 9) return nullptr;
+	else if (getSize() == 1 && typeid(*this) != typeid(NumberCard)) return nullptr;
 	else return removeCard(index);
 }
 

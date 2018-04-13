@@ -14,7 +14,8 @@ void DrawFourCard::castEffect(Player *& currentPlayer, CardPile & drawPile, Card
 	if (currentPlayer->getNextPlayer()->appealDrawFour()) {
 		bool legal = true;
 		for (int i = 0; i < currentPlayer->getSize(); i++) {
-			if (*discardPile.getTopCard() ^ *currentPlayer->getCard(i)) {
+			if (*discardPile.getTopCard() ^ *currentPlayer->getCard(i)
+				&& typeid(*currentPlayer->getCard(i)) != typeid(DrawFourCard)) {
 				legal = false;
 				break;
 			}

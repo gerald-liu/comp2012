@@ -107,9 +107,9 @@ const Matrix& Matrix::operator=(Matrix&& mat) {
  */
 Matrix Matrix::operator+(const Matrix& mat) {
 	if (print_step) cout << "operator +" << endl;
-	Matrix m{ mat.ptr, mat.num_rows, mat.num_cols };
+	Matrix m{ mat };
 	for (int i = 0; i < num_rows * num_cols; i++) m.ptr[i] += ptr[i];
-	return move(m);
+	return m;
 }
 
 /**

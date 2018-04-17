@@ -62,9 +62,3 @@ bool SmartArray<KeyType, ValueType>::has(KeyType key) const {
 	for (int i = 0; i < size; i++) if (data[i]->key == key) return true;
 	return false;
 }
-
-template <typename KeyType, typename ValueType>
-ostream& operator<<(ostream& os, const SmartArray<KeyType, ValueType>& sa) {
-	sa.print(os);
-	return os;
-}

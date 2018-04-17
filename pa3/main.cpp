@@ -8,11 +8,11 @@ using namespace std;
 
 #include "bst.h"
 #include "smartArray.h"
-//#include "hashingVault.h"
+#include "hashingVault.h"
 #include "insertionOperators.h"
 
 int main()
-{/*
+{
     cout << "==========" << "Test case 1" << "==========" << endl;
     BST<int, string>* bst = new BST<int, string>;
     cout << "add result: " << boolalpha << bst->add(2, "b") << endl;
@@ -77,7 +77,7 @@ int main()
     cout << "bst->isEmpty(): " << boolalpha << bst->isEmpty() << endl;
 
     delete bst;
-*/
+
     cout << endl << endl << "==========" << "Test case 5" << "==========" << endl;
     SmartArray<string, string>* sa = new SmartArray<string, string>;
     cout << endl << "add result: " << boolalpha << sa->add("animal", "dog") << endl;
@@ -111,7 +111,7 @@ int main()
     cout << endl << "sa[1] = (" << (*sa)[1]->key << "," << (*sa)[1]->value << ")" << endl;
 
     delete sa;
-/*
+
     cout << endl << endl << "==========" << "Test case 6" << "==========" << endl;
     BST<int, int>* bst2 = new BST<int, int>;
     bst2->add(2, 22);
@@ -130,7 +130,7 @@ int main()
 
     delete bst2;
     delete bst3;
-*//*
+/*
     cout << endl << endl << "==========" << "Test case 7" << "==========" << endl;
     int tableSize = 5;
     Container<int, string>** bstTable = new Container<int, string>*[tableSize]; //it is created in the main, but should be deleted in HashingVault's destructor

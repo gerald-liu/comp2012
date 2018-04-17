@@ -14,10 +14,10 @@ build: $(OBJ)
 dbg_build: dbg_$(OBJ)
 	$(CXX) -o $(EXE) $(OBJ)
 
-$(OBJ): $(SRC) smartArray.h smartArray.tpp container.h pair.h
+$(OBJ): $(SRC) pair.h container.h smartArray.h smartArray.tpp bstNode.h bst.h bst.tpp
 	$(CXX) $(CXXFLAGS) -c $(SRC)
 
-dbg_$(OBJ): $(SRC) smartArray.h smartArray.tpp container.h pair.h
+dbg_$(OBJ): $(SRC) pair.h container.h smartArray.h smartArray.tpp bstNode.h bst.h bst.tpp
 	$(CXX) $(CXXFLAGS) $(DBGFLAGS) -c $(SRC)
 
 run:

@@ -130,7 +130,7 @@ int main()
 
     delete bst2;
     delete bst3;
-/*
+
     cout << endl << endl << "==========" << "Test case 7" << "==========" << endl;
     int tableSize = 5;
     Container<int, string>** bstTable = new Container<int, string>*[tableSize]; //it is created in the main, but should be deleted in HashingVault's destructor
@@ -188,6 +188,6 @@ int main()
     cout << *saHV;
 
     delete saHV;
-*/
+
     return 0;
 }

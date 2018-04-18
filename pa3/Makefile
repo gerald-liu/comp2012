@@ -1,6 +1,6 @@
 EXE = a.out
-SRC = main.cpp
-OBJ = main.o
+SRC = *.cpp
+OBJ = *.o
 CXXFLAGS = -std=c++11 -Wall
 DBGFLAGS = -g
 
@@ -14,11 +14,14 @@ build: $(OBJ)
 dbg_build: dbg_$(OBJ)
 	$(CXX) -o $(EXE) $(OBJ)
 
-$(OBJ): $(SRC) pair.h container.h smartArray.h smartArray.tpp bstNode.h bst.h bst.tpp
+$(OBJ):
 	$(CXX) $(CXXFLAGS) -c $(SRC)
 
-dbg_$(OBJ): $(SRC) pair.h container.h smartArray.h smartArray.tpp bstNode.h bst.h bst.tpp
+dbg_$(OBJ):
 	$(CXX) $(CXXFLAGS) $(DBGFLAGS) -c $(SRC)
+
+depend:
+	makedepend $(SRC)
 
 run:
 	./$(EXE)

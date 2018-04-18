@@ -11,8 +11,8 @@ HashingVault<KeyType, ValueType>::~HashingVault() {
 template <typename KeyType, typename ValueType>
 bool HashingVault<KeyType, ValueType>::add(KeyType key, ValueType value) {
 	Container<KeyType, ValueType>* c = table[fun(key)];
-	if (c->get(key) != ValueType()) return false;
-	else c->add(key, value);
+	for (int i = 0; i < c->count(); i++) if (key == (*c)[i]->key) return false;
+	c->add(key, value);
 	return true;
 }
 
@@ -22,9 +22,13 @@ ValueType HashingVault<KeyType, ValueType>::get(KeyType key) const { return tabl
 template <typename KeyType, typename ValueType>
 bool HashingVault<KeyType, ValueType>::remove(KeyType key) {
 	Container<KeyType, ValueType>* c = table[fun(key)];
-	if (c->get(key) == ValueType()) return false;
-	else c->remove(key);
-	return true;
+	for (int i = 0; i < c->count(); i++) {
+		if (key == (*c)[i]->key) {
+			c->remove(key);
+			return true;
+		}
+	}
+	return false;
 }
 
 template <typename KeyType, typename ValueType>

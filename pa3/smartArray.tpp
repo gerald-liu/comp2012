@@ -29,6 +29,7 @@ bool SmartArray<KeyType, ValueType>::remove(KeyType key) {
 		if (data[i]->key == key) {
 			Pair<KeyType, ValueType>** temp = new Pair<KeyType, ValueType>* [--size];
 			for (int j = 0; j < i; j++) temp[j] = data[j];
+			delete data[i];
 			for (int j = i; j < size; j++) temp[j] = data[j + 1];
 			delete[] data;
 			data = temp;

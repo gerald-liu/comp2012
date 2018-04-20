@@ -1,7 +1,7 @@
 EXE = a.out
 SRC = *.cpp
 OBJ = *.o
-CXXFLAGS = -std=c++11 -Wall
+CXXFLAGS = -std=c++11 -Wall -fno-elide-constructors
 DBGFLAGS = -g
 
 all: clean build run

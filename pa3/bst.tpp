@@ -70,18 +70,13 @@ int BST<KeyType, ValueType>::count() const { return size; }
 template <typename KeyType, typename ValueType>
 int BST<KeyType, ValueType>::height() const {
 	if (isEmpty()) return 0;
-	else if (!root->left.root && !root->right.root) return 0;
-	else {
-		int leftHeight = root->left.height();
-		int rightHeight = root->right.height();
-		return 1 + ((leftHeight > rightHeight) ? leftHeight : rightHeight);
-	}
+	else if (size == 1) return 0;
+	return 1 + ((root->left.height() > root->right.height()) ? root->left.height() : root->right.height());
 }
 
 template <typename KeyType, typename ValueType>
 const Pair<KeyType, ValueType>* BST<KeyType, ValueType>::operator[](int n) const {
 	if (n < 0 || n >= size || isEmpty()) return nullptr;
-	else if (size == 1) return &root->data;
 	else if (n < root->left.size) return root->left[n];
 	else if (n > root->left.size) return root->right[n - root->left.size - 1];
 	else return &root->data;

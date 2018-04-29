@@ -40,6 +40,7 @@ void Player::drawCard(CardPile & drawPile, CardPile & discardPile, int numCards)
 }
 
 Card * Player::playCardAfter(const Card * topCard, int index) {
+	if (!getCard(index)) return nullptr; // missing, -2 marks
 	if (!(*topCard ^ *getCard(index))) return nullptr;
 	else if (getSize() == 1 && typeid(*this) != typeid(NumberCard)) return nullptr;
 	else return removeCard(index);

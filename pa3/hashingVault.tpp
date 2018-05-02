@@ -9,35 +9,20 @@ HashingVault<KeyType, ValueType>::~HashingVault() {
 }
 
 template <typename KeyType, typename ValueType>
-bool HashingVault<KeyType, ValueType>::add(KeyType key, ValueType value) {
-	Container<KeyType, ValueType>* c = table[fun(key)];
-	for (int i = 0; i < c->count(); i++) if (key == (*c)[i]->key) return false;
-	c->add(key, value);
-	return true;
-}
+bool HashingVault<KeyType, ValueType>::add(KeyType key, ValueType value) { return table[fun(key)]->add(key, value); }
 
 template <typename KeyType, typename ValueType>
 ValueType HashingVault<KeyType, ValueType>::get(KeyType key) const { return table[fun(key)]->get(key); }
 
 template <typename KeyType, typename ValueType>
-bool HashingVault<KeyType, ValueType>::remove(KeyType key) {
-	Container<KeyType, ValueType>* c = table[fun(key)];
-	for (int i = 0; i < c->count(); i++) {
-		if (key == (*c)[i]->key) {
-			c->remove(key);
-			return true;
-		}
-	}
-	return false;
-}
+bool HashingVault<KeyType, ValueType>::remove(KeyType key) { return table[fun(key)]->remove(key); }
 
 template <typename KeyType, typename ValueType>
 void HashingVault<KeyType, ValueType>::rehash(int size, Container<KeyType, ValueType>** table, int (*fun)(KeyType)) {
 	for (int i = 0; i < this->size; i++) {
-		while (this->table[i]->count() != 0) {
-			const Pair<KeyType, ValueType>* data = (*this->table[i])[0];
+		for (int j = 0; j < this->table[i]->count(); j++) {
+			const Pair<KeyType, ValueType>* data = (*this->table[i])[j];
 			table[fun(data->key)]->add(data->key, data->value);
-			this->table[i]->remove(data->key);
 		}
 		delete this->table[i];
 	}

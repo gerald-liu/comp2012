@@ -15,7 +15,7 @@ bool SmartArray<KeyType, ValueType>::add(KeyType key, ValueType value) {
 		if (data[i]->key > key) break;
 	}
 	Pair<KeyType, ValueType>** temp = new Pair<KeyType, ValueType>* [++size];
-	for (int j = 0; j < i; j++) temp[j] = data[j];
+    for (int j = 0; j < i; j++) temp[j] = data[j];
 	temp[i] = new Pair<KeyType, ValueType>(key, value);
 	for (int j = i + 1; j < size; j++) temp[j] = data[j - 1];
 	delete[] data;
@@ -28,15 +28,14 @@ bool SmartArray<KeyType, ValueType>::remove(KeyType key) {
 	for (int i = 0; i < size; i++) {
 		if (data[i]->key == key) {
 			size--;
+            delete data[i];
             if (size == 0) {
-                delete data[i];
                 delete[] data;
                 data = nullptr;
             }
             else {
                 Pair<KeyType, ValueType>** temp = new Pair<KeyType, ValueType>* [size];
                 for (int j = 0; j < i; j++) temp[j] = data[j];
-                delete data[i];
                 for (int j = i; j < size; j++) temp[j] = data[j + 1];
                 delete[] data;
                 data = temp;

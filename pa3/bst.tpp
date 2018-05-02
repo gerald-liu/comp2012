@@ -16,10 +16,16 @@ const BST<KeyType, ValueType>* BST<KeyType, ValueType>::findMin() const {
 }
 
 template <typename KeyType, typename ValueType>
-const BST<KeyType, ValueType>& BST<KeyType, ValueType>::rightSubtree() const { return root->right; }
+const BST<KeyType, ValueType>& BST<KeyType, ValueType>::rightSubtree() const {
+    if (!root) return *this;
+    else return root->right;
+}
 
 template <typename KeyType, typename ValueType>
-const BST<KeyType, ValueType>& BST<KeyType, ValueType>::leftSubtree() const { return root->left; }
+const BST<KeyType, ValueType>& BST<KeyType, ValueType>::leftSubtree() const {
+    if (!root) return *this;
+    else return root->left;
+}
 
 template <typename KeyType, typename ValueType>
 bool BST<KeyType, ValueType>::add(KeyType key, ValueType value) {

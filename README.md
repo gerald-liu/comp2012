@@ -1,9 +1,11 @@
 # comp2012
 
-COMP2012	Object-Oriented Programming and Data Structures  
+COMP2012  **Object-Oriented Programming and Data Structures**  
 2018 Spring, HKUST  
 Gerald Liu  
 [wliuax@connect.ust.hk](mailto:wliuax@connect.ust.hk)
+
+Study Notes: [comp2012.md](https://github.com/gerald-liu/comp2012/blob/master/comp2012.md)
 
 ## Programs by Gerald Liu
 

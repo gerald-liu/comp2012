@@ -3,7 +3,7 @@
 COMP2012  **Object-Oriented Programming and Data Structures**  
 2018 Spring, HKUST  
 Gerald Liu  
-[wliuax@connect.ust.hk](mailto:wliuax@connect.ust.hk)
+[gerald.w.liu@gmail.com](mailto:gerald.w.liu@gmail.com)
 
 Study Notes: [comp2012.md](https://github.com/gerald-liu/comp2012/blob/master/comp2012.md)
 
